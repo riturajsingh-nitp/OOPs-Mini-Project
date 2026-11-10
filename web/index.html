@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudentLife — Your college, held together</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#top"><span class="brand-mark">S</span><span>student<br>life</span></a>
+      <nav aria-label="Main navigation">
+        <a class="active" href="#today"><span>⌂</span> Today</a>
+        <a href="#schedule"><span>▣</span> Planner</a>
+        <a href="#budget"><span>◒</span> Budget</a>
+        <a href="#wellness"><span>♡</span> Wellness</a>
+      </nav>
+      <div class="semester"><span>Semester 4</span><strong>56% through</strong><div class="progress"><i></i></div></div>
+      <div class="profile"><div class="avatar">AS</div><div><strong>Aarav Sharma</strong><small>BCA · Year 2</small></div></div>
+    </aside>
+
+    <main id="top">
+      <header><div><p class="date">Tuesday, 10 November</p><h1>Make today count.</h1></div><button class="primary" id="focusBtn">Start a focus sprint <span>→</span></button></header>
+      <section class="briefing" id="today" aria-labelledby="brief-title">
+        <div><p class="section-kicker">Your day at a glance</p><h2 id="brief-title">One thing deserves<br>your full attention.</h2><p class="brief-copy">Finish the OOP mini project before Thursday. You have a clear two-hour window after your DBMS class.</p><button class="text-button" id="showTasks">See what’s next</button></div>
+        <div class="timepiece" aria-label="Two hours and twenty minutes of planned focus time"><span class="time-label">Focus left</span><strong>2<span>h</span> 20<span>m</span></strong><div class="clock"><i></i><b></b></div><small>Three sessions planned</small></div>
+      </section>
+      <section class="schedule" id="schedule" aria-labelledby="schedule-title">
+        <div class="section-heading"><div><p class="section-kicker">Today’s schedule</p><h2 id="schedule-title">A rhythm, not a rush.</h2></div><div class="filters" role="group" aria-label="Task filter"><button class="filter selected" data-filter="all">All</button><button class="filter" data-filter="academic">Study</button><button class="filter" data-filter="personal">Personal</button></div></div>
+        <div class="timeline" id="timeline"></div>
+        <form class="add-task" id="taskForm"><label for="taskTitle">Add a small win</label><input id="taskTitle" maxlength="70" placeholder="e.g. Outline presentation" required><select id="taskType" aria-label="Task type"><option value="academic">Study</option><option value="personal">Personal</option></select><button class="add" type="submit">Add task</button></form>
+      </section>
+      <section class="lower-grid">
+        <article class="budget-panel" id="budget"><div class="section-heading"><div><p class="section-kicker">Monthly budget</p><h2>Money, made visible.</h2></div><button class="icon-button" id="expenseBtn" aria-label="Add an expense">+</button></div><div class="budget-figure"><strong id="remaining">₹10,315</strong><span>left to spend this month</span></div><div class="budget-bar"><i id="budgetFill"></i></div><div class="budget-meta"><span><b id="spent">₹1,685</b> spent</span><span>₹12,000 plan</span></div><ul class="expense-list" id="expenses"><li><span class="expense-dot food"></span><span>Lunch at campus <small>Food</small></span><b>−₹165</b></li><li><span class="expense-dot travel"></span><span>Bus pass <small>Travel</small></span><b>−₹520</b></li></ul></article>
+        <article class="wellness-panel" id="wellness"><p class="section-kicker">A small check-in</p><h2>How are you arriving today?</h2><p>There’s no score to chase. Just notice where you are.</p><div class="moods" role="group" aria-label="Choose mood"><button data-mood="Rough">☹<span>Rough</span></button><button data-mood="Okay">◔<span>Okay</span></button><button class="chosen" data-mood="Good">☺<span>Good</span></button><button data-mood="Great">✦<span>Great</span></button></div><p class="checkin" id="checkin">Feeling good is a useful place to begin.</p></article>
+      </section>
+    </main>
+  </div>
+  <dialog id="expenseDialog"><form method="dialog" id="expenseForm"><button class="close" value="cancel" aria-label="Close">×</button><p class="section-kicker">Add an expense</p><h2>Keep the picture clear.</h2><label>What was it?<input id="expenseTitle" required placeholder="e.g. Library printouts"></label><label>Amount (₹)<input id="expenseAmount" required type="number" min="1" step="1" placeholder="0"></label><button class="primary" value="default">Save expense</button></form></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
